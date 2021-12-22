@@ -201,7 +201,7 @@ st.set_page_config(
 )
 
 # Define o título do Dashboard
-image = Image.open(r'imagens\virando_daytrader_logo.png')
+image = Image.open(r'virando_daytrader_logo.png')
 image = image.resize((200, 200), Image.ANTIALIAS)
 st.markdown('---')
 c1,c2,c3 = st.columns((1,1,1))
