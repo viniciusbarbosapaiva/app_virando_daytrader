@@ -140,7 +140,7 @@ def gerenciamento(gain_valor,loss_valor, repeticao):
     return combinacao_df
     
 def print_gerenciamento(value_gain, value_loss, repetion):
-    c1,c2,c3 = st.columns((0.5,1,0.5))
+    c1,c2,c3 = st.beta_columns((0.5,1,0.5))
 
     analise = gerenciamento(value_gain, value_loss, repetion)    
 
@@ -148,7 +148,7 @@ def print_gerenciamento(value_gain, value_loss, repetion):
 
 def resumo():    
    
-    c1,c2,c3 = st.columns((0.5,1,0.5))
+    c1,c2,c3 = st.beta_columns((0.5,1,0.5))
     analise = print_gerenciamento(gain, loss, operacoes)
     
     positivo_s_soros = analise[analise['soma_s_soros'] >0]   
@@ -180,14 +180,14 @@ def resumo():
     
     
     if operacao == 'Sim':
-        c4,c5,c6 = st.columns((1,1,1))
+        c4,c5,c6 = st.beta_columns((1,1,1))
         download = c5.download_button('Download CSV', positivo_s_soros.to_csv().encode('utf-8'),"file.csv","text/csv",key='download-csv')
         if download:
-            c7,c8,c9 = st.columns((1,1,1))
+            c7,c8,c9 = st.beta_columns((1,1,1))
             c8.write('Obrigado pelo download!')
         
     elif operacao == 'Não':
-        c7,c8,c9 = st.columns((1,1,1))
+        c7,c8,c9 = st.beta_columns((1,1,1))
         c8.write('Caso queira baixar as combinações, selecione "Sim".')
     
 
@@ -204,7 +204,7 @@ st.set_page_config(
 image = Image.open(r'virando_daytrader_logo.png')
 image = image.resize((200, 200), Image.ANTIALIAS)
 st.markdown('---')
-c1,c2,c3 = st.columns((1,1,1))
+c1,c2,c3 = st.beta_columns((1,1,1))
 c1.image(image)
 c2.title("App Virando Daytrader")
 c3.subheader("Autor: Vinícius B. Paiva ([LinkedIn](https://www.linkedin.com/in/vinicius-barbosa-paiva/)) ([GitHub](https://github.com/viniciusbarbosapaiva))")
@@ -212,7 +212,7 @@ st.markdown('---')
 
 
 # Definindo os Botões para as respostas
-c4,c5,c6 = st.columns((1,1,1))
+c4,c5,c6 = st.beta_columns((1,1,1))
 c4.subheader('Qual será o valor do gain (em valor monetário R$)?')
 gain = c4.number_input('Pontos para Take Profit', value=int(80))
 c5.subheader('Qual será o valor do loss (em valor monetário R$)?')
@@ -222,7 +222,7 @@ operacoes = c6.slider('Selecione Quantidade',2,15)
 st.markdown('---')
 
 # Botão para gerar combinações
-c7,c8,c9 = st.columns((1,1,1))
+c7,c8,c9 = st.beta_columns((1,1,1))
 c8.subheader("Gerar Combinações?")
 resumo_botao = c8.selectbox('Deseja gerar combinações?', ['Sim', 'Não'], index=1)
 
