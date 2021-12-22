@@ -192,7 +192,7 @@ def resumo():
     
 
 # Definindo layout da página
-logo_aba = Image.open(r'imagens\virando_daytrader_logo.png')
+logo_aba = Image.open(r'virando_daytrader_logo.png')
 logo_aba = logo_aba.resize((16, 16), Image.ANTIALIAS)
 st.set_page_config(
     layout="wide",
